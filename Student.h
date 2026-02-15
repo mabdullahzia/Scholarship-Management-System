@@ -3,17 +3,21 @@
 #include<string>
 using namespace std;
 
+enum Department{CS,Engineering,Medical};
+
 class Student{
 private:
     string name;
+    Department dept;
     float marks;
-    float scholarship;
+    float scholarshipPercent;
+    bool needBased;
 public:
-    Student(string n,float m){name=n;marks=m;scholarship=0;}
+    Student(string n,Department d,float m,bool need=false);
     void calculateScholarship();
-    void display() const{
-        cout<<"Name:"<<name<<" Marks:"<<marks<<" Scholarship:"<<scholarship<<"%\n";
-    }
+    void display() const;
+    Department getDept() const{return dept;}
+    float getScholarship() const{return scholarshipPercent;}
 };
 
 #endif
